@@ -16,7 +16,7 @@ const getPrducts = async () => {
 	const result = await database.query({
 		text: query,
 	});
-	console.log(result.rows);
+
 	return result.rows;
 };
 const getProductByTitle = async (title) => {
@@ -39,7 +39,7 @@ const getProductByCategoryOrTitle = async (title, category) => {
 		text: query,
 		values: [title, category],
 	});
-	console.log(result.rows);
+
 	return result.rows;
 };
 const updateProduct = async (title, description, price, category, id) => {
