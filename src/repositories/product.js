@@ -34,7 +34,7 @@ const getProductByCategoryOrTitle = async (title, category) => {
 	if (!title && !category) {
 		return null;
 	}
-	const query = `select * from catalog  where title = $1 or category = $2`;
+	const query = `SELECT * FROM catalog WHERE title = $1 OR category = $2`;
 	const result = await database.query({
 		text: query,
 		values: [title, category],
@@ -53,10 +53,34 @@ const updateProduct = async (title, description, price, category, id) => {
 	});
 	return result.rows;
 };
+const updateCategory = async (title, category) => {
+	if (!title || !category) {
+		return null;
+	}
+	const query = `UPDATE "catalog" SET category = $1 WHERE title = $2`;
+	const result = await database.query({
+		text: query,
+		values: [title, category],
+	});
+	return result.rows;
+};
+const deleteProducts = async (title) => {
+	if (!title) {
+		return null;
+	}
+	const query = `DELETE FROM catalog WHERE title = $1 RETURNING *`;
+	const result = await database.query({
+		text: query,
+		values: [title],
+	});
+	return result.rows.length > 0;
+};
 module.exports = {
 	registerProduct,
 	getProductByTitle,
 	updateProduct,
+	updateCategory,
 	getPrducts,
 	getProductByCategoryOrTitle,
+	deleteProducts,
 };
