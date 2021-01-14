@@ -1,0 +1,30 @@
+{
+  "name": "product-catalog",
+  "version": "1.0.0",
+  "description": "Uma API de gerenciamento de produtos",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UilsonAlves0/product-catalog.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UilsonAlves0/product-catalog/issues"
+  },
+  "homepage": "https://github.com/UilsonAlves0/product-catalog#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "eslint": "^7.17.0",
+    "koa": "^2.13.1",
+    "koa-bodyparser": "^4.3.0",
+    "koa-router": "^10.0.0",
+    "nodemon": "^2.0.7",
+    "pg": "^8.5.1",
+    "prettier": "^2.2.1",
+    "router": "^1.3.5"
+  }
+}
